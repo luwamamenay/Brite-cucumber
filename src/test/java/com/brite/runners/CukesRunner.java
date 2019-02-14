@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
         features = "src/test/resources/features",
         glue = "com/brite/step_definitions"
         , dryRun = false
-        , tags = "@user"
+        , tags = "@BRIT-3998"
 )
 public class CukesRunner {
 
