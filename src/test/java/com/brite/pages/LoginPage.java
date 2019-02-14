@@ -31,6 +31,7 @@ public class    LoginPage{
 
 
     public void login(String email ,String password){
+
         this.email.sendKeys(email);
         this.password.sendKeys(password);
 

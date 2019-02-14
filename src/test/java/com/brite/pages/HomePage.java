@@ -15,6 +15,9 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='nav navbar-nav navbar-left oe_application_menu_placeholder']/li/a[contains(.,'Inventory')]")
     public WebElement inventoryMenu;
 
+    @FindBy(linkText = "Receipts")
+    public WebElement receiptsLink;
+
 
 
 

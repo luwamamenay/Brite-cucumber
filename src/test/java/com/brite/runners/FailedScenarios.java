@@ -14,6 +14,6 @@ import cucumber.api.junit.Cucumber;
                 "html:target/cucumber/",
                 "rerun:target/rerun.txt"}
 )
-public class FailedSenarios   {
+public class FailedScenarios {
 
 }

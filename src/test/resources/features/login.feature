@@ -1,21 +1,22 @@
-
+@regression @login @smoke
 Feature: login functionality
 
-@user
+  Background: user / manager should go to home page
+    Given the user goes to url
+    When the user clicks on BritErpDemo button
+    Then the title should be "Login | Website localhost"
+
+  @user
   Scenario: user login
-    Given user  in the login page
-    When When  user  clicks on BriteErpDemo butto
-    Then user  logs in using "in2@info.com" and "alsfuh7we71"
-    And And the user clicks Log in button
-    And click on invetory module
+    When the "user" enters valid email and password and going to inventory page
 
 
-@manger
-  Scenario: manager login
 
-    Given manger in the login page
-    When   manger  clicks on BriteErpDemo button
-    When manger logs in using "in@info.com" and "alsfuh7we67"
-    And And the manager  clicks Log in button
-    And clicks on invetory module
+  @manager
+  Scenario: user login
+    When the "manager" enters valid email and password and going to inventory page
+
+
+
+
 
