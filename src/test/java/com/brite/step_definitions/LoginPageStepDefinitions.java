@@ -17,6 +17,7 @@ public class LoginPageStepDefinitions {
     @Given("the user goes to url")
     public void the_user_goes_to_url() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        Driver.getDriver().manage().deleteAllCookies();
     }
 
     @When("the user clicks on BritErpDemo button")
@@ -27,7 +28,7 @@ public class LoginPageStepDefinitions {
     @Then("the title should be {string}")
     public void the_title_should_be(String expectedTitle) {
         BrowserUtils.wait(3);
-        Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
+        Assert.assertEquals(expectedTitle,Driver.getDriver().getTitle());
 
     }
 
