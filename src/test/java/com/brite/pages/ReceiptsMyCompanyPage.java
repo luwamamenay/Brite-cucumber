@@ -27,9 +27,5 @@ public class ReceiptsMyCompanyPage {
     @FindBy(xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr/td//input")
     public List<WebElement> checkboxes;
 
-    @FindBy(xpath = "//button[@accesskey='s']")
-    public WebElement saveButton;
 
-    @FindBy(linkText = "Add an item")
-    public WebElement addAnItem;
 }
