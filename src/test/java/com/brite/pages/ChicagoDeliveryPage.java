@@ -37,7 +37,8 @@ public class ChicagoDeliveryPage {
     @FindBy(xpath = "//button[contains(text(),'Import')]")
     public WebElement Import;
 
-
+    @FindBy(xpath="//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement Save;
 
 }
 
