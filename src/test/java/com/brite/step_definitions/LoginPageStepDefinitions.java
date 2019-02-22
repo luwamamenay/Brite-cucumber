@@ -16,6 +16,7 @@ public class LoginPageStepDefinitions {
 
     @Given("the user goes to url")
     public void the_user_goes_to_url() {
+
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
