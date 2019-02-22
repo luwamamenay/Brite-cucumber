@@ -6,8 +6,9 @@ Feature: User should have Chicago Warehouse Receipts module under Inventory func
     When the "user" enters valid email and password and going to inventory page
     And user should click the Receipts Module
 
-  @Brite1155
-  Scenario: Verify Chicago Warehouse Receipts is visible in Inventory page
-    Then User verifies if Receipts for chicago warehouse is displayed
 
-
+  @Brite2126
+  Scenario: Create an empty partner and verify odoo server error Please add some lines to move
+    Given User clicks on Create
+    Then User clicks on Validate
+    And User verifies the error message "Please add some lines to move"

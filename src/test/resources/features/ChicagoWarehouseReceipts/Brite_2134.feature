@@ -6,8 +6,13 @@ Feature: User should have Chicago Warehouse Receipts module under Inventory func
     When the "user" enters valid email and password and going to inventory page
     And user should click the Receipts Module
 
-  @Brite1155
-  Scenario: Verify Chicago Warehouse Receipts is visible in Inventory page
-    Then User verifies if Receipts for chicago warehouse is displayed
+
+  @Brite2134
+  Scenario: Edit the first order and enter notes.
+    Given User clicks on first product
+    And User clicks on edit
+    And User goes to notes section
+    Then User enters some notes notes
+    And User clicks on save
 
 

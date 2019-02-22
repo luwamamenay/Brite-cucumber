@@ -18,10 +18,10 @@ import java.util.concurrent.TimeUnit;
                 "json:target/cucumber.json",
                 "rerun:target/rerun.txt"
         },
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/ChicagoWarehouseReceipts",
         glue = "com/brite/step_definitions"
-        , dryRun = false
-        , tags = "@user"
+        , dryRun = true
+        , tags = " @Brite2134"
 )
 public class CukesRunner {
 

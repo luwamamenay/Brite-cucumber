@@ -6,8 +6,8 @@ Feature: User should have Chicago Warehouse Receipts module under Inventory func
     When the "user" enters valid email and password and going to inventory page
     And user should click the Receipts Module
 
-  @Brite1155
-  Scenario: Verify Chicago Warehouse Receipts is visible in Inventory page
-    Then User verifies if Receipts for chicago warehouse is displayed
 
-
+  @Brite2130
+  Scenario: Verify Print and Action drop down list displays when a product is selected
+    When User selects a random reference checkbox
+    Then print and action dropdown list should enable
