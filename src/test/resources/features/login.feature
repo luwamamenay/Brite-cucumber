@@ -17,6 +17,3 @@ Feature: login functionality
     When the "manager" enters valid email and password and going to inventory page
 
 
-
-
-

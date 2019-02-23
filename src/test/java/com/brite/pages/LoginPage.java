@@ -29,11 +29,16 @@ public class    LoginPage{
     @FindBy (xpath = "//button[contains(.,'Log in')]")
     public WebElement submitBtn;
 
+    @FindBy(xpath = "//button[.='Log in']")
+    public WebElement login;
+
 
     public void login(String email ,String password){
 
         this.email.sendKeys(email);
         this.password.sendKeys(password);
+        login.click();
+
 
     }
 
