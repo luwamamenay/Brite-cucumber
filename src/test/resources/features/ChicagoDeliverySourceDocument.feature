@@ -1,6 +1,6 @@
 Feature:
 	#Verify that all options are available on Partner
-	@BRIT-1892 @Inventory @McLean @Tyson_03 @ChicagoDelivery
+	@BRIT-1892 @Inventory @McLean @Tyson_03 @ChicagoDelivery @regression
 	Scenario: ST-06 Verify that user is able to see Source Document
 		Given the user goes to url
 		When the user clicks on BritErpDemo button

@@ -1,6 +1,6 @@
 Feature:
 	#Verify that user is able to save or discard
-	@BRIT-1894 @Inventory @McLean @Tyson_03 @ChicagoDelivery
+	@BRIT-1894 @Inventory @McLean @Tyson_03 @ChicagoDelivery @regression
 	Scenario: ST-07 Verify that user is able to see Back Order of
 		Given the user goes to url
 		When the user clicks on BritErpDemo button

@@ -1,6 +1,6 @@
 Feature:
 	#Verify that user is able to see import
-	@BRIT-1898 @Inventory @McLean @Tyson_03 @ChicagoDelivery
+	@BRIT-1898 @Inventory @McLean @Tyson_03 @ChicagoDelivery @regression
 	Scenario: ST-09 Verify that user is able to see import
 		Given the user goes to url
 		When the user clicks on BritErpDemo button

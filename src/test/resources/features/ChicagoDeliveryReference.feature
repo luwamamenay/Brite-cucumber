@@ -1,6 +1,6 @@
 Feature:
 	#SR-01 Verify that system title displays "Chicago Warehouse: Delivery Orders - Odoo"
-	@BRIT-1865 @Inventory @McLean @Tyson_03 @ChicagoDelivery
+	@BRIT-1865 @Inventory @McLean @Tyson_03 @ChicagoDelivery @regression
 	Scenario: SR-01 Verify that user is able to see Reference
 		Given the user goes to url
 		When the user clicks on BritErpDemo button

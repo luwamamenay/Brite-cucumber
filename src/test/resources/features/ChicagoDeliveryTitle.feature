@@ -1,6 +1,6 @@
 Feature:
 	#Verify that Shipping Policy items are exist
-	@BRIT-1882 @Inventory @McLean @Tyson_03 @ChicagoDelivery
+	@BRIT-1882 @Inventory @McLean @Tyson_03 @ChicagoDelivery @regression
 	Scenario: ST-03 Verify that title shows "Chicago Warehouse: Delivery Orders - Odoo"
 		Given the user goes to url
 		When the user clicks on BritErpDemo button

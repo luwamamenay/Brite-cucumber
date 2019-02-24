@@ -1,6 +1,6 @@
 Feature:
 	#ST-02 Verify that user is able to create new order
-	@BRIT-1874 @Inventory @McLean @Tyson_03 @ChicagoDelivery
+	@BRIT-1874 @Inventory @McLean @Tyson_03 @ChicagoDelivery @regression
 	Scenario: ST-02 Verify that user is able to create new order
 		Given the user goes to url
 		When the user clicks on BritErpDemo button
