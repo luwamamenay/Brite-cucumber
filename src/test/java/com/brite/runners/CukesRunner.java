@@ -1,15 +1,9 @@
 package com.brite.runners;
-import com.brite.utilities.Driver;
+
 import cucumber.api.CucumberOptions;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-import java.util.concurrent.TimeUnit;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -20,8 +14,8 @@ import java.util.concurrent.TimeUnit;
         },
         features = "src/test/resources/features",
         glue = "com/brite/step_definitions"
-        , dryRun = false
-        , tags = "@user"
+        , dryRun =false
+        , tags = "@wip"
 )
 public class CukesRunner {
 
