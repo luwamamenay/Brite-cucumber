@@ -7,3 +7,4 @@ Feature:
 		When the "manager" enters valid email and password and going to inventory page
 		And the user opens ChicagoDelivery page
 		Then user should be able to see Source Document
+
