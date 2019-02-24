@@ -1,4 +1,5 @@
-@user
+
+@regression
 Feature: createAndSafe  functionality
 
   Background: user  should go to home page

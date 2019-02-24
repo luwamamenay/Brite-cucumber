@@ -1,4 +1,4 @@
-@user
+@regression
 Feature: delivery order your company functionality(total number)
 
   Background: user  should go to home page

@@ -1,4 +1,4 @@
-@user
+@regression
 Feature: ImportAndLoad functionality
 
   Background: user  should go to home page

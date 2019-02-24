@@ -1,4 +1,4 @@
-@user
+@regression
 Feature: delivery order delete functionality
 
   Background: user  should go to home page

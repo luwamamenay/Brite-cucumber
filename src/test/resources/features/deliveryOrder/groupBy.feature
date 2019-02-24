@@ -1,4 +1,4 @@
-@user
+@regression
 Feature: GroupBy functionality
 
   Background: user  should go to home page

@@ -1,4 +1,4 @@
-@user
+@regression
 Feature: printButton functionality
 
   Background: user  should go to home page

@@ -1,4 +1,4 @@
-@user
+@regression
 Feature: createButton functionality
 
   Background: user  should go to home page
