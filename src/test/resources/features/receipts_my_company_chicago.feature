@@ -2,17 +2,10 @@
 Feature: I should be able successfully to use main functionalities of module
          'Receipts - My Company Chicago' (Manager prospective)
 
-  Background: user / manager should go to home page
-
-    Given the user goes to url
-    When the user clicks on BritErpDemo button
-    Then the title should be "Login | Website localhost"
-
-
-  Scenario: user login
-    When the "manager" enters valid email and password and going to inventory page
-
+@regression
   Scenario: Verify if as a manager can open 'Receipts - My Company Chicago' module
+  Given the user goes to url
+  Then the title should be "Login | Website localhost"
     When the "manager" enters valid email and password and going to inventory page
     And manager clicks on Receipts - My Company Chicago
     Then the title should be "Inventory - Odoo"
@@ -29,13 +22,13 @@ Feature: I should be able successfully to use main functionalities of module
       | Source document |
       | Back Order of   |
       | Status          |
- #passed
+
   Scenario: Verify if on top of Receipts table heading Status is available and clickable
     When the "manager" enters valid email and password and going to inventory page
     And manager clicks on Receipts - My Company Chicago
     And manager clicks on Status
     Then status of the first receipts is "Ready"
-  #passed
+
   Scenario: Verify if on top of navigation bar Calendar is available and clickable
     When the "manager" enters valid email and password and going to inventory page
     And manager clicks on Receipts - My Company Chicago
@@ -84,7 +77,7 @@ Feature: I should be able successfully to use main functionalities of module
     And click Save on right top of the main panel
     Then receipt should not be saved and "number" should not be displayed on top of the window
 
-  @regression
+
   Scenario: Verify if Delete option is available and clickable
     When the "manager" enters valid email and password and going to inventory page
     And manager clicks on first Reference from the list

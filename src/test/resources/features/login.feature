@@ -1,9 +1,8 @@
-@regression @login @smoke
+@login
 Feature: login functionality
 
   Background: user / manager should go to home page
     Given the user goes to url
-    When the user clicks on BritErpDemo button
     Then the title should be "Login | Website localhost"
 
   @user
