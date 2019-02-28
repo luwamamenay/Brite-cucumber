@@ -14,9 +14,6 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy(xpath = "(//a/span[.='Receipts'])[1]")
     public WebElement receipts;
 
-    @FindBy (xpath = "(//div[@class='o_list_buttons']//button)[1]")
-    public WebElement createButton;
-
     @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr[3]/td[5]")
     public WebElement receiptNumber;
 
@@ -29,7 +26,7 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@class='o_field_phone o_field_widget o_input']")
     public WebElement phoneNumber;
 
-    @FindBy (xpath = "//*[@class='modal-footer']//button[1]")
+    @FindBy (xpath = "//*[@id=\"modal_206\"]/div/div/div[3]/button[1]")
     public WebElement saveButtonPartner;
 
     @FindBy (xpath = "//*[@class='btn btn-sm btn-default o_button_import']")
@@ -53,11 +50,17 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@class='o_list_buttons']//button[2]")
     public WebElement importButtonReceipt;
 
-    @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr/td[7]")
-    public WebElement draftStatus;
+    @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/thead/tr/th[3]")
+    public WebElement partnerButton;
 
-    @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr/td[7]")
-    public WebElement readyStatus;
+    @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/thead/tr/th[4]")
+    public WebElement scheduleDateButton;
+
+    @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/thead/tr/th[5]")
+    public WebElement sourceDocumentButton;
+
+    @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/thead/tr/th[6]")
+    public WebElement backOrderButton;
 
     @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/thead/tr/th[7]")
     public WebElement statusButton;
@@ -71,17 +74,20 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//div[@class='btn-group btn-group-sm o_cp_switch_buttons']/button[3]")
     public WebElement calendarButton;
 
-    @FindBy (xpath = "//div[@class='btn-group o_search_options']/div[1]/ul/li[5]")
-    public WebElement doneStatus;
-
     @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr/td[7]")
     public WebElement resultStatus;
 
     @FindBy (xpath = "//*[@title='Advanced Search...']")
     public WebElement advancedSearchBtn;
 
-    @FindBy (xpath = "//*[@class='btn-group o_dropdown open']")
+    @FindBy (xpath = "//*[@class='btn-group o_search_options'][1]/div[1]//button")
     public WebElement filterBtn;
+
+    @FindBy(xpath = "//*[@class='btn-group o_search_options']/div[2]//button")
+    public WebElement groupByBtn;
+
+    @FindBy (xpath = "//*[@class='btn-group o_search_options']/div[3]//button")
+    public WebElement favouritesBtn;
 
     @FindBy (xpath = "//*[@class='o_field_char o_field_widget o_readonly_modifier']")
     public WebElement newReceiptNumber;

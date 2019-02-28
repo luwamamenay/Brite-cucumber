@@ -20,8 +20,8 @@ import java.util.concurrent.TimeUnit;
         },
         features = "src/test/resources/features",
         glue = "com/brite/step_definitions"
-        , dryRun = true
-        , tags = "@wip"
+        , dryRun = false
+        , tags = "@smoke, @regression"
 )
 public class CukesRunner {
 

@@ -22,7 +22,7 @@ public class LoginPageStepDefinitions {
 
     @Then("the title should be {string}")
     public void the_title_should_be(String expectedTitle) {
-        BrowserUtils.wait(1);
+        BrowserUtils.wait(5);
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
     }
 

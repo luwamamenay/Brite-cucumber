@@ -24,8 +24,25 @@ public class ReceiptsMyCompanyChicagoStepDefinitions {
     }
 
     @When("manager clicks on table {string}")
-    public void manager_clicks_on_table(String string) {
+    public void manager_clicks_on_table(String headings) {
 
+        switch (headings) {
+            case "Partner":
+                myCompanyChicago.partnerButton.click();
+                break;
+            case "Schedule date":
+                myCompanyChicago.scheduleDateButton.click();
+                break;
+            case "Source document":
+                myCompanyChicago.sourceDocumentButton.click();
+                break;
+            case "Back Order of":
+                myCompanyChicago.backOrderButton.click();
+                break;
+            case "Status":
+                myCompanyChicago.statusButton.click();
+                break;
+        }
     }
 
     @When("manager clicks on Status")
@@ -66,7 +83,18 @@ public class ReceiptsMyCompanyChicagoStepDefinitions {
 
     @Then("the {string} should be displayed on the main panel")
     public void the_should_be_displayed_on_the_main_panel(String searchType) {
-       myCompanyChicago.filterBtn.isDisplayed();
+
+        switch (searchType){
+            case "Filters":
+                myCompanyChicago.filterBtn.isDisplayed();
+                break;
+            case "Group By":
+                myCompanyChicago.groupByBtn.isDisplayed();
+                break;
+            case "Favourites":
+                myCompanyChicago.favouritesBtn.isDisplayed();
+                break;
+        }
     }
 
     @When("choose partner {string} from dropdown list")

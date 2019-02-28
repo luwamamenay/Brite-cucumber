@@ -7,10 +7,11 @@ Feature: I should be able successfully to use main functionalities of module
     When the "manager" enters valid email and password and going to inventory page
     Then manager clicks on Receipts - My Company Chicago
 
-#passed
+  @smoke
   Scenario: Verify if as a manager can open 'Receipts - My Company Chicago' module
-    Then the title should be "Inventory - Odoo"
-@wip
+    Then the title should be "My Company, Chicago: Receipts - Odoo"
+
+   @smoke
   Scenario Outline: Verify if all categories are available and clickable on the same page
     When manager clicks on table "<headings>"
     Then the title should be "My Company, Chicago: Receipts - Odoo"
@@ -23,20 +24,21 @@ Feature: I should be able successfully to use main functionalities of module
       | Back Order of   |
       | Status          |
 
-#passed
+  @regression
   Scenario: Verify if on top of Receipts table heading Status is available and clickable
     And manager clicks on Status
     Then status of the first receipts is "Ready"
 
-#passed
+  @regression
   Scenario: Verify if on top of navigation bar Calendar is available and clickable
     And manager clicks on Calendar
     Then button Today is clickable
-#passed
+  @regression
   Scenario: Verify if on top of navigation bar Kanban is available and clickable
     And manager clicks on Kanban
     Then button Import is displayed
 
+  @regression
   Scenario Outline: Verify if on top of navigation bar Advanced search is available and clickable
     When manager clicks on Advanced search
     Then the "<search type>" should be displayed on the main panel
@@ -47,7 +49,7 @@ Feature: I should be able successfully to use main functionalities of module
     | Group By     |
     | Favorites    |
 
-#passed
+  @smoke
   Scenario:  Verify if manager can edit Receipt with valid information
     And choose partner 'PO4567' from dropdown list
     And click on edit button
@@ -57,7 +59,7 @@ Feature: I should be able successfully to use main functionalities of module
     And click Save on right top of the main panel
     Then receipt should be saved and "number" displayed on top of the window
 
-#passed
+  @regression
   Scenario: Verify if as manager can't create new Receipt with invalid information
     And choose partner 'PO4567' from dropdown list
     And click on edit button
@@ -67,7 +69,7 @@ Feature: I should be able successfully to use main functionalities of module
     And click Save on right top of the main panel
     Then receipt should not be saved and "number" should not be displayed on top of the window
 
-#passed
+  @regression
   Scenario: Verify if Delete option is available and clickable
     And manager clicks on first Reference from the list
     And manager clicks on Action
