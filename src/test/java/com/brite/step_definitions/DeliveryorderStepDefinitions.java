@@ -214,15 +214,15 @@ public class DeliveryorderStepDefinitions {
     @When("user  clicks on print dropDown and selctes deliveryslip")
     public void user_clicks_on_print_dropDown_and_selctes_deliveryslip() {
         deliveryOrder.printDropdown.click();
-        deliveryOrder.deliverySlip.click();
+        //deliveryOrder.deliverySlip.click();
     }
 
 
     @Then("user should see the deliveryslip and click on print button")
     public void user_should_see_the_deliveryslip_and_click_on_print_button() {
         deliveryOrder.deliverySlip.isDisplayed();
-        deliveryOrder.printButton.click();
-        Assert.assertTrue(BrowserUtils.isClickable(deliveryOrder.printButton));
+        deliveryOrder.deliverySlip.click();
+        Assert.assertTrue(BrowserUtils.isClickable(deliveryOrder.deliverySlip));
 
     }
 

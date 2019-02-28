@@ -24,6 +24,7 @@ public class LoginPageStepDefinitions {
     @When("the user clicks on BritErpDemo button")
     public void the_user_clicks_on_BritErpDemo_button() {
         loginPage.selectDemo.click();
+
     }
 
     @Then("the title should be {string}")
