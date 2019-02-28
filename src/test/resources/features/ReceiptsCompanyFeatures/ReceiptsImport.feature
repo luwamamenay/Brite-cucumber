@@ -3,7 +3,7 @@ Feature:As a User I should be able to upload a file
 
   Background:Steps to open Receipts Module page.
     Given the user goes to url
-    When the user clicks on BritErpDemo button
+#    When the user clicks on BritErpDemo button
     When the "user" enters valid email and password and going to inventory page
     And user should click the Receipts Module
 

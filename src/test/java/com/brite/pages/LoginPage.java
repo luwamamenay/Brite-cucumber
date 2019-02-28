@@ -20,13 +20,19 @@ public class    LoginPage{
     @FindBy(xpath ="//a[contains(.,'Demo')]")
     public WebElement selectDemo;
 
-    @FindBy(id= "login")
+   // @FindBy(id= "login")
+   @FindBy (xpath = "//input[@id='login']")
     public WebElement email;
 
-    @FindBy(id="password")
+
+
+
+   // @FindBy(id="password")
+    @FindBy (xpath = "//input[@id='password']")
     public WebElement password;
 
-    @FindBy (xpath = "//button[contains(.,'Log in')]")
+   // @FindBy (xpath = "//button[contains(.,'Log in')]")
+    @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement submitBtn;
 
 
