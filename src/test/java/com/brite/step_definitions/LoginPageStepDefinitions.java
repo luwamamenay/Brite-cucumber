@@ -19,10 +19,6 @@ public class LoginPageStepDefinitions {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    @When("the user clicks on BritErpDemo button")
-    public void the_user_clicks_on_BritErpDemo_button() {
-        loginPage.selectDemo.click();
-    }
 
     @Then("the title should be {string}")
     public void the_title_should_be(String expectedTitle) {
