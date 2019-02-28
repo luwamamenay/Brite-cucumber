@@ -2,12 +2,13 @@
 Feature: I should be able successfully to use main functionalities of module
          'Receipts - My Company Chicago' (Manager prospective)
 
+  Background:
+    When the "manager" enters valid email and password and going to inventory page
+    And manager clicks on Receipts - My Company Chicago
 
-@regression
+  @wip
   Scenario: Verify if as a manager can open 'Receipts - My Company Chicago' module
-  When the "manager" enters valid email and password and going to inventory page
-  And manager clicks on Receipts - My Company Chicago
-  Then the title should be "Inventory - Odoo"
+    Then the title should be "Inventory - Odoo"
 
   Scenario Outline: Verify if all categories are available and clickable on the same page
     When the "manager" enters valid email and password and going to inventory page
