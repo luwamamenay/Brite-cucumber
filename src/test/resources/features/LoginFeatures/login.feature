@@ -16,3 +16,7 @@ Feature: login functionality
   Scenario: user login
     When the "manager" enters valid email and password and going to inventory page
 
+
+
+
+
