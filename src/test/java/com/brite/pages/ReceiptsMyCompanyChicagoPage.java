@@ -26,13 +26,13 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@class='o_field_phone o_field_widget o_input']")
     public WebElement phoneNumber;
 
-    @FindBy (xpath = "//*[@id=\"modal_206\"]/div/div/div[3]/button[1]")
+    @FindBy (xpath = "//*[@class='btn btn-sm btn-primary']")
     public WebElement saveButtonPartner;
 
     @FindBy (xpath = "//*[@class='btn btn-sm btn-default o_button_import']")
     public WebElement importButton;
 
-    @FindBy (xpath = "//div[@class='o_form_buttons_edit']//button[1]")
+    @FindBy (xpath = "//*[@class='btn btn-primary btn-sm o_form_button_save']")
     public WebElement saveButtonReceipt;
 
     @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr[2]/td[1]")

@@ -28,7 +28,6 @@ Feature: I should be able successfully to use main functionalities of module
   Scenario: Verify if on top of Receipts table heading Status is available and clickable
     And manager clicks on Status
     Then status of the first receipts is "Ready"
-
   @regression
   Scenario: Verify if on top of navigation bar Calendar is available and clickable
     And manager clicks on Calendar
@@ -66,7 +65,6 @@ Feature: I should be able successfully to use main functionalities of module
     And click button Open Partner
     And add mobile phone number 'abc-defg-jklm'
     And click Save on left down corner of window
-    And click Save on right top of the main panel
     Then receipt should not be saved and "number" should not be displayed on top of the window
 
   @regression
