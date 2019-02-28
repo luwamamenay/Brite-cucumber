@@ -11,7 +11,7 @@ public class ReceiptsMyCompanyChicagoPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//div[@name='stock_picking'][2]")
+    @FindBy(xpath = "(//a/span[.='Receipts'])[1]")
     public WebElement receipts;
 
     @FindBy (xpath = "(//div[@class='o_list_buttons']//button)[1]")
@@ -32,6 +32,9 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@class='modal-footer']//button[1]")
     public WebElement saveButtonPartner;
 
+    @FindBy (xpath = "//*[@class='btn btn-sm btn-default o_button_import']")
+    public WebElement importButton;
+
     @FindBy (xpath = "//div[@class='o_form_buttons_edit']//button[1]")
     public WebElement saveButtonReceipt;
 
@@ -48,7 +51,7 @@ public class ReceiptsMyCompanyChicagoPage {
     public WebElement deleteMessage;
 
     @FindBy (xpath = "//*[@class='o_list_buttons']//button[2]")
-    public WebElement importButton;
+    public WebElement importButtonReceipt;
 
     @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr/td[7]")
     public WebElement draftStatus;

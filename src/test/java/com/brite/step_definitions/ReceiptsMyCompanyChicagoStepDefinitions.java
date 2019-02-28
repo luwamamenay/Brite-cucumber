@@ -17,33 +17,15 @@ public class ReceiptsMyCompanyChicagoStepDefinitions {
 
     ReceiptsMyCompanyChicagoPage myCompanyChicago = new ReceiptsMyCompanyChicagoPage();
 
-    @When("manager clicks on Receipts - My Company Chicago")
+    @Then("manager clicks on Receipts - My Company Chicago")
     public void manager_clicks_on_Receipts_My_Company_Chicago() {
-
+        BrowserUtils.waitForClickablility(myCompanyChicago.receipts, 10);
         myCompanyChicago.receipts.click();
     }
 
-    @Then("Receipts - My Company Chicago module table has {string}")
-    public void receipts_My_Company_Chicago_module_table_has(String headings) {
-       ReceiptsMyCompanyChicagoPage myCompanyChicagoPage = new ReceiptsMyCompanyChicagoPage();
-        // TODO check if headings are present
-        switch (headings) {
-            case "Partner":
-                //mapPage.map.click();
-                break;
-            case "Schedule date":
-                //mapPage.hunt.click();
-                break;
-            case "Source document":
-                //mapPage.goToSelf();
-                break;
-            case "Back Order of":
-                //mapPage.goToTeam();
-                break;
-            case "Status":
-                //mapPage.goToTeam();
-                break;
-        }
+    @When("manager clicks on table {string}")
+    public void manager_clicks_on_table(String string) {
+
     }
 
     @When("manager clicks on Status")
@@ -71,10 +53,10 @@ public class ReceiptsMyCompanyChicagoStepDefinitions {
         myCompanyChicago.kanbanButton.click();
     }
 
-    @Then("the url should be {string}")
-    public void the_url_should_be(String url) {
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), url);
-        System.out.printf(Driver.getDriver().getCurrentUrl());
+    @Then("button Import is displayed")
+    public void button_Import_is_displayed() {
+      BrowserUtils.waitForVisibility(myCompanyChicago.importButtonReceipt, 10);
+      myCompanyChicago.importButtonReceipt.isDisplayed();
     }
 
     @When("manager clicks on Advanced search")
@@ -112,6 +94,7 @@ public class ReceiptsMyCompanyChicagoStepDefinitions {
 
     @When("click Save on left down corner of window")
     public void click_Save_on_left_down_corner_of_window() {
+        BrowserUtils.waitForClickablility(myCompanyChicago.saveButtonPartner, 10);
         myCompanyChicago.saveButtonPartner.click();
     }
 

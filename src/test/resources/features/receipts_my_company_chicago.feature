@@ -3,17 +3,17 @@ Feature: I should be able successfully to use main functionalities of module
          'Receipts - My Company Chicago' (Manager prospective)
 
   Background:
+    Given the user goes to url
     When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
+    Then manager clicks on Receipts - My Company Chicago
 
-  @wip
+#passed
   Scenario: Verify if as a manager can open 'Receipts - My Company Chicago' module
     Then the title should be "Inventory - Odoo"
-
+@wip
   Scenario Outline: Verify if all categories are available and clickable on the same page
-    When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
-    Then Receipts - My Company Chicago module table has "<headings>"
+    When manager clicks on table "<headings>"
+    Then the title should be "My Company, Chicago: Receipts - Odoo"
 
         Examples:
       | headings        |
@@ -23,28 +23,22 @@ Feature: I should be able successfully to use main functionalities of module
       | Back Order of   |
       | Status          |
 
+#passed
   Scenario: Verify if on top of Receipts table heading Status is available and clickable
-    When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
     And manager clicks on Status
     Then status of the first receipts is "Ready"
 
+#passed
   Scenario: Verify if on top of navigation bar Calendar is available and clickable
-    When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
     And manager clicks on Calendar
     Then button Today is clickable
-
+#passed
   Scenario: Verify if on top of navigation bar Kanban is available and clickable
-    When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
     And manager clicks on Kanban
-    Then the url should be "http://52.39.162.23/web?#view_type=kanban&model=stock.picking&action=491&active_id=6"
+    Then button Import is displayed
 
   Scenario Outline: Verify if on top of navigation bar Advanced search is available and clickable
-    When the "manager" enters valid email  and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
-    And manager clicks on Advanced search
+    When manager clicks on Advanced search
     Then the "<search type>" should be displayed on the main panel
 
       Examples:
@@ -53,10 +47,8 @@ Feature: I should be able successfully to use main functionalities of module
     | Group By     |
     | Favorites    |
 
- #passed
+#passed
   Scenario:  Verify if manager can edit Receipt with valid information
-    When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
     And choose partner 'PO4567' from dropdown list
     And click on edit button
     And click button Open Partner
@@ -65,10 +57,8 @@ Feature: I should be able successfully to use main functionalities of module
     And click Save on right top of the main panel
     Then receipt should be saved and "number" displayed on top of the window
 
-
+#passed
   Scenario: Verify if as manager can't create new Receipt with invalid information
-    When the "manager" enters valid email and password and going to inventory page
-    And manager clicks on Receipts - My Company Chicago
     And choose partner 'PO4567' from dropdown list
     And click on edit button
     And click button Open Partner
@@ -77,9 +67,8 @@ Feature: I should be able successfully to use main functionalities of module
     And click Save on right top of the main panel
     Then receipt should not be saved and "number" should not be displayed on top of the window
 
-
+#passed
   Scenario: Verify if Delete option is available and clickable
-    When the "manager" enters valid email and password and going to inventory page
     And manager clicks on first Reference from the list
     And manager clicks on Action
     And manager clicks on Delete from dropdown list
