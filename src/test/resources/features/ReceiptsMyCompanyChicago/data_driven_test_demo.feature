@@ -10,6 +10,5 @@ Feature: I should be able to schedule successfully testDemos, meetings, calls, t
   @wip
   Scenario: I should be able to schedule successfully testDemos
     Given manager clicks on Create new transfer
-     When manager can add <partner>, <product>, <price>
-     And schedule activity for testDemo with <notes>
+     When manager can add <partner>, <product>, <price>, <notes>
     Then correct information should be displayed in planned activities

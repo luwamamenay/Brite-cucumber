@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class ReceiptsMyCompanyChicagoPage {
 
     public ReceiptsMyCompanyChicagoPage() {
@@ -29,14 +31,47 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@class='btn btn-sm btn-primary']")
     public WebElement saveButtonPartner;
 
-    @FindBy (xpath = "//*[@class='btn btn-primary btn-sm o_list_button_add']")
+    @FindBy (xpath = "(//div[@class='o_list_buttons']//button)[1]")
     public WebElement createButton;
+
+    @FindBy (xpath = "(//div[@class='o_input_dropdown']//input)[1]")
+    public WebElement partner;
+
+    @FindBy (xpath = "(//div[@class='o_searchview']//input)")
+    public WebElement searchPartner;
+
+    @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr[1]/td[1])[2]")
+    public WebElement searchPartnerResult;
+
+//    @FindBy (xpath = "//div[@class='modal-footer']//button[1]")
+//    public WebElement creatPartner;
+
+    @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped o_editable_list']/tbody/tr[1]/td)[2]")
+    public WebElement addItem;
+
+    @FindBy (xpath = "//div[@class='o_field_widget o_field_many2one o_required_modifier']/div//input")
+    public List<WebElement> itemLink;
+
+    @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped o_editable_list']/tbody/tr[1]/td[3])//span")
+    public WebElement price;
+
+    @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
+    public List<WebElement> activity;
+
+    @FindBy (xpath = "//*[@class='note-editable panel-body']")
+    public WebElement notes;
+
+    @FindBy (xpath = "(//*[@class='modal-footer'])[3]//button[1]/span")
+    public WebElement scheduleActivityBtn;
 
     @FindBy (xpath = "//*[@class='btn btn-sm btn-default o_button_import']")
     public WebElement importButton;
 
-    @FindBy (xpath = "//*[@class='btn btn-primary btn-sm o_form_button_save']")
+    @FindBy (xpath = "(//div[@class='o_form_buttons_edit']//button)[1]")
     public WebElement saveButtonReceipt;
+
+    @FindBy (xpath = "(//div[@class='o_chatter_topbar']//button)[3]")
+    public WebElement scheduleActivity;
 
     @FindBy (xpath = "//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr[2]/td[1]")
     public WebElement selectReceipt;

@@ -8,6 +8,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 import java.util.List;
 import java.util.Map;
@@ -23,8 +24,8 @@ public class DataDrivenTestDemoStepDefinitions {
         myCompanyChicago.createButton.click();
     }
 
-    @When("manager can add <partner>, <product>, <price>")
-    public void manager_can_add_partner_product_price() {
+    @When("manager can add <partner>, <product>, <price>, <notes")
+    public void manager_can_add_partner_product_price_notes() {
 
         String file = "./src/test/resources/test_data/Receipts_Chicago_TestDemo.xlsx";
         String sheet = "TestDemo";
@@ -34,33 +35,34 @@ public class DataDrivenTestDemoStepDefinitions {
 
         for (Map<String, String> testData : testDemoDataDataList) {
 
-            String expectedPartner = testData.get("partner");
-            //sendKeys
+            myCompanyChicago.partnerButton.click();
 
-            String expectedProduct = testData.get("product");
-            //sendKeys
+            String expectedPartner = testData.get("Partner");
+            myCompanyChicago.searchPartner.sendKeys(expectedPartner, Keys.ENTER);
+            if (myCompanyChicago.searchPartnerResult.getText().equalsIgnoreCase(testData.get("Partner"))){
+                myCompanyChicago.searchPartnerResult.click();
+            }
 
-            String expectedPrice = testData.get("price");
-            //sendKeys
+            String expectedProduct = testData.get("Product");
+            myCompanyChicago.addItem.click();
+            myCompanyChicago.itemLink.contains(testData.get("Product"));
+            //dropdown
+
+
+            String expectedPrice = testData.get("Price");
+            myCompanyChicago.price.sendKeys(expectedPrice, Keys.ENTER);
+            myCompanyChicago.saveButtonReceipt.click();
+
+            myCompanyChicago.scheduleActivity.click();
+            myCompanyChicago.activity.contains(testData.get("Activity"));
+
+            String expectedNotes = testData.get("Notes");
+            myCompanyChicago.notes.sendKeys(expectedNotes);
+            myCompanyChicago.scheduleActivityBtn.click();
             }
         }
 
-    @When("schedule activity for testDemo with <notes>")
-    public void schedule_activity_for_testDemo_with_notes() {
 
-        String file = "./src/test/resources/test_data/Receipts_Chicago_TestDemo.xlsx";
-        String sheet = "TestDemo";
-        ExcelUtils testDemoData = new ExcelUtils(file, sheet);
-
-        List<Map<String, String>> testDemoDataDataList = testDemoData.getDataList();
-
-        for (Map<String, String> testData : testDemoDataDataList) {
-
-            String expectedPartner = testData.get("notes");
-            //sendKeys
-
-        }
-    }
 
     @Then("correct information should be displayed in planned activities")
     public void correct_information_should_be_displayed_in_planned_activities() {
