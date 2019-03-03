@@ -1,71 +1,90 @@
 package com.brite.step_definitions.ReceiptsMyCompanyChicago;
 
-import com.brite.pages.HomePage;
-import com.brite.pages.LoginPage;
 import com.brite.pages.ReceiptsMyCompanyChicagoPage;
+import com.brite.utilities.BrowserUtils;
 import com.brite.utilities.ExcelUtils;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 
 public class DataDrivenTestDemoStepDefinitions {
 
-    LoginPage loginPage = new LoginPage();
-    HomePage homePage = new HomePage();
     ReceiptsMyCompanyChicagoPage myCompanyChicago = new ReceiptsMyCompanyChicagoPage();
 
     @Given("manager clicks on Create new transfer")
     public void manager_clicks_on_Create_new_transfer() {
+        BrowserUtils.waitForClickablility(myCompanyChicago.createButton, 5);
         myCompanyChicago.createButton.click();
     }
 
-    @When("manager can add <partner>, <product>, <price>, <notes")
-    public void manager_can_add_partner_product_price_notes() {
 
-        String file = "./src/test/resources/test_data/Receipts_Chicago_TestDemo.xlsx";
-        String sheet = "TestDemo";
-        ExcelUtils testDemoData = new ExcelUtils(file, sheet);
+    @When("manager can add {string}, {string}, {string}")
+    public void manager_can_add(String partner, String product, String price) {
 
-        List<Map<String, String>> testDemoDataDataList = testDemoData.getDataList();
+        myCompanyChicago.partnerButton.click();
+        new Select(myCompanyChicago.partnerDropDown).selectByVisibleText("Search More...");
 
-        for (Map<String, String> testData : testDemoDataDataList) {
+        myCompanyChicago.searchPartner.sendKeys(partner, Keys.ENTER);
+        if (myCompanyChicago.searchPartnerResult.getText().equalsIgnoreCase(partner)){
+            myCompanyChicago.searchPartnerResult.click();
+        }
 
-            myCompanyChicago.partnerButton.click();
+        BrowserUtils.waitForClickablility(myCompanyChicago.addItem, 5);
+        myCompanyChicago.addItem.click();
+        new Select(myCompanyChicago.itemLink).selectByVisibleText(product);
 
-            String expectedPartner = testData.get("Partner");
-            myCompanyChicago.searchPartner.sendKeys(expectedPartner, Keys.ENTER);
-            if (myCompanyChicago.searchPartnerResult.getText().equalsIgnoreCase(testData.get("Partner"))){
-                myCompanyChicago.searchPartnerResult.click();
-            }
+        myCompanyChicago.price.sendKeys(price, Keys.ENTER);
+        myCompanyChicago.saveButtonReceipt.click();
+    }
 
-            String expectedProduct = testData.get("Product");
-            myCompanyChicago.addItem.click();
-            myCompanyChicago.itemLink.contains(testData.get("Product"));
-            //dropdown
+    @When("manager schedules {string} with {string}")
+    public void manager_schedules_with(String activity, String notes) {
 
+        BrowserUtils.waitForClickablility(myCompanyChicago.scheduleActivity, 5);
+        myCompanyChicago.scheduleActivity.click();
+        new Select(myCompanyChicago.activity).selectByVisibleText(activity);
 
-            String expectedPrice = testData.get("Price");
-            myCompanyChicago.price.sendKeys(expectedPrice, Keys.ENTER);
-            myCompanyChicago.saveButtonReceipt.click();
+        myCompanyChicago.notes.sendKeys(notes);
+        myCompanyChicago.scheduleActivityBtn.click();
+    }
 
-            myCompanyChicago.scheduleActivity.click();
-            myCompanyChicago.activity.contains(testData.get("Activity"));
+    @When("manager schedules {string}, {string}, {string}")
+    public void manager_schedules(String month, String date, String time) {
 
-            String expectedNotes = testData.get("Notes");
-            myCompanyChicago.notes.sendKeys(expectedNotes);
-            myCompanyChicago.scheduleActivityBtn.click();
+        BrowserUtils.waitForClickablility(myCompanyChicago.month, 5);
+        if(myCompanyChicago.month.getText().equals(month)){
+            myCompanyChicago.month.click();
+        }else{
+            myCompanyChicago.nextMonth.click();
+            myCompanyChicago.month.click();
+        }
+
+        new Select(myCompanyChicago.getDate(date)).selectByValue(date);
+        myCompanyChicago.dayBtn.click();
+
+        for (WebElement t : myCompanyChicago.time){
+            if (t.getText().equals(time)) {
+                t.click();
             }
         }
 
+        myCompanyChicago.createSummary.click();
+    }
 
+    @When("manager goes to the planned activities page")
+    public void manager_goes_to_the_planned_activities_page() {
 
-    @Then("correct information should be displayed in planned activities")
-    public void correct_information_should_be_displayed_in_planned_activities() {
+    }
+
+    @Then("manager should see correct information:")
+    public void manager_should_see_correct_information(io.cucumber.datatable.DataTable dataTable) {
 
     }
 }

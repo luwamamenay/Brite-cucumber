@@ -1,6 +1,7 @@
 package com.brite.pages;
 
 import com.brite.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -34,8 +35,8 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "(//div[@class='o_list_buttons']//button)[1]")
     public WebElement createButton;
 
-    @FindBy (xpath = "(//div[@class='o_input_dropdown']//input)[1]")
-    public WebElement partner;
+    @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
+    public WebElement partnerDropDown;
 
     @FindBy (xpath = "(//div[@class='o_searchview']//input)")
     public WebElement searchPartner;
@@ -44,25 +45,80 @@ public class ReceiptsMyCompanyChicagoPage {
     public WebElement searchPartnerResult;
 
 //    @FindBy (xpath = "//div[@class='modal-footer']//button[1]")
-//    public WebElement creatPartner;
+//    public WebElement createPartner;
 
     @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped o_editable_list']/tbody/tr[1]/td)[2]")
     public WebElement addItem;
 
     @FindBy (xpath = "//div[@class='o_field_widget o_field_many2one o_required_modifier']/div//input")
-    public List<WebElement> itemLink;
+    public WebElement itemLink;
 
     @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped o_editable_list']/tbody/tr[1]/td[3])//span")
     public WebElement price;
 
     @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
-    public List<WebElement> activity;
+    public WebElement activity;
 
     @FindBy (xpath = "//*[@class='note-editable panel-body']")
     public WebElement notes;
 
     @FindBy (xpath = "(//*[@class='modal-footer'])[3]//button[1]/span")
     public WebElement scheduleActivityBtn;
+
+    @FindBy (xpath = "//div[@class='ui-datepicker-title']/span[1]")
+    public WebElement month;
+
+//    @FindBy (xpath = "//div[@class='form-group']/input")
+//    public WebElement summary;
+
+    @FindBy (xpath = "//div[@class='modal-footer']/button[1]")
+    public WebElement createSummary;
+
+    @FindBy (xpath = "//a[@class='ui-datepicker-next ui-corner-all']/span[1]")
+    public WebElement nextMonth;
+
+    public WebElement getDate(String date) {
+        int week = 0;
+        int dateConvert = Integer.parseInt(date);
+        if (dateConvert >= 1 && dateConvert <= 6){
+            week = 1;
+        }else if(dateConvert >= 7 && dateConvert <= 13){
+            week = 2;
+        }else if (dateConvert >= 14 && dateConvert <= 20){
+            week = 3;
+        }else if (dateConvert >= 21 && dateConvert <= 27){
+            week = 4;
+        }else if (dateConvert >= 28 && dateConvert <= 30){
+            week = 5;
+        }
+
+        switch (week){
+            case 1:
+                week = 1;
+            break;
+            case 2:
+                week = 2;
+                break;
+            case 3:
+                week = 3;
+                break;
+            case 4:
+                week = 4;
+                break;
+            case 5:
+                week = 5;
+                break;
+        }
+
+        return Driver.getDriver().findElement(By.xpath("//table[@class='ui-datepicker-calendar']/tbody/tr[" + week + "]/td"));
+        ////table[@class='ui-datepicker-calendar']/tbody/tr[1]/td
+    }
+
+    @FindBy (xpath = "//div[@class='btn-group btn-group-sm']/button[1]")
+    public WebElement dayBtn;
+
+    @FindBy (xpath = "//div[@class='fc-slats']/table/tbody/tr")
+    public List<WebElement> time;
 
     @FindBy (xpath = "//*[@class='btn btn-sm btn-default o_button_import']")
     public WebElement importButton;
