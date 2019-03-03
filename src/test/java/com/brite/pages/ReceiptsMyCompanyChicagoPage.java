@@ -29,6 +29,9 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@class='btn btn-sm btn-primary']")
     public WebElement saveButtonPartner;
 
+    @FindBy (xpath = "//*[@class='btn btn-primary btn-sm o_list_button_add']")
+    public WebElement createButton;
+
     @FindBy (xpath = "//*[@class='btn btn-sm btn-default o_button_import']")
     public WebElement importButton;
 
