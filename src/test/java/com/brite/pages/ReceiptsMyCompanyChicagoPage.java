@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -63,18 +65,37 @@ public class ReceiptsMyCompanyChicagoPage {
     public List<WebElement> listOfProducts;
 
 
-    public List <WebElement> listOfProducts(){
-        List list = Driver.getDriver().findElements(By.xpath("//ul[@id='ui-id-169']/li[@class='ui-menu-item']"));
+    public List <WebElement> listOfProducts() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//ul[@id='ui-id-169']/li[@class='ui-menu-item']")));
+        Thread.sleep(1000);
+        List list = Driver.getDriver().findElements(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li[@class='ui-menu-item']"));
 
         return list;
     }
 
 
-    @FindBy (xpath = "//input[@class='o_field_float o_field_number o_field_widget o_input']")
+    @FindBy (xpath = "//td[@class='o_data_cell o_list_number']/input")
     public WebElement price;
 
-    @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
+    @FindBy (xpath = "//div[@class='o_field_widget o_field_many2one o_required_modifier']/div")
     public WebElement activity;
+
+    @FindBy (xpath = "(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li[@class='ui-menu-item'])[1]/a")
+    public WebElement testDemo;
+
+    public List <WebElement> listOfActivities() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//ul[@id='ui-id-169']/li[@class='ui-menu-item']")));
+        Thread.sleep(1000);
+        List list = Driver.getDriver().findElements(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li[@class='ui-menu-item']"));
+
+        return list;
+    }
+
+    //stoped here
+    @FindBy (xpath = "//div[@class='o_cp_buttons']/div/button[2]")
+    public WebElement todayBtnCalendar;
 
     @FindBy (xpath = "//*[@class='note-editable panel-body']")
     public WebElement notes;

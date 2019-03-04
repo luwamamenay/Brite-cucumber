@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Instant;
 import java.util.*;
 
 
@@ -29,7 +30,7 @@ public class DataDrivenTestDemoStepDefinitions {
 
 
     @When("manager can add {string}, {string}, {string}")
-    public void manager_can_add(String partner, String product, String price) {
+    public void manager_can_add(String partner, String product, String price) throws InterruptedException {
 
         myCompanyChicago.partnerButton.click();
         myCompanyChicago.partnerDropDown.click();
@@ -57,54 +58,81 @@ public class DataDrivenTestDemoStepDefinitions {
         List<WebElement> s = myCompanyChicago.listOfProducts();
 
 
-
-        System.out.println(s);
-
-        myCompanyChicago.price.sendKeys(price, Keys.ENTER);
+        //System.out.println(s.get(0).getText());
+        System.out.println(product);
+        for (WebElement each : s) {
+            System.out.println(each.getText());
+            if (each.getText().contains(product)) {
+                System.out.println("Congrats!!!");
+                System.out.println(each.getText());
+                each.click();
+                //wait.until(ExpectedConditions.visibilityOf(myCompanyChicago.price));
+                //myCompanyChicago.price.sendKeys(price, Keys.ENTER);
+            }
+        }
+       // myCompanyChicago.saveButtonReceipt.click();
         myCompanyChicago.saveButtonReceipt.click();
     }
 
     @When("manager schedules {string} with {string}")
-    public void manager_schedules_with(String activity, String notes) {
+    public void manager_schedules_with(String activity, String notes) throws InterruptedException {
 
         BrowserUtils.waitForClickablility(myCompanyChicago.scheduleActivity, 5);
         myCompanyChicago.scheduleActivity.click();
-        new Select(myCompanyChicago.activity).selectByVisibleText(activity);
+        //myCompanyChicago.activity
+
+        BrowserUtils.waitForVisibility(myCompanyChicago.activity, 5);
+        myCompanyChicago.activity.click();
+        myCompanyChicago.testDemo.click();
+//        List<WebElement> s1 = myCompanyChicago.listOfActivities();
+//        for (WebElement each : s1) {
+//            System.out.println(each.getText());
+//            if (each.getText().contains("TestDemo")) {
+//                System.out.println("Congrats!!!");
+//                System.out.println(each.getText());
+//                each.click();
+//                //wait.until(ExpectedConditions.visibilityOf(myCompanyChicago.price));
+//                //myCompanyChicago.price.sendKeys(price, Keys.ENTER);
+//            }
+//        }
 
         myCompanyChicago.notes.sendKeys(notes);
         myCompanyChicago.scheduleActivityBtn.click();
     }
 
-    @When("manager schedules {string}, {string}, {string}")
-    public void manager_schedules(String month, String date, String time) {
+//    @When("manager schedules {string}, {string}, {string}")
+//    public void manager_schedules(String month, String date, String time) {
+//
+//        BrowserUtils.waitForClickablility(myCompanyChicago.month, 5);
+//        if(myCompanyChicago.month.getText().equals(month)){
+//            myCompanyChicago.month.click();
+//        }else{
+//            myCompanyChicago.nextMonth.click();
+//            myCompanyChicago.month.click();
+//        }
+//
+//        new Select(myCompanyChicago.getDate(date)).selectByValue(date);
+//        myCompanyChicago.dayBtn.click();
+//
+//        for (WebElement t : myCompanyChicago.time){
+//            if (t.getText().equals(time)) {
+//                t.click();
+//            }
+//        }
+//
+//        myCompanyChicago.createSummary.click();
+//    }
 
-        BrowserUtils.waitForClickablility(myCompanyChicago.month, 5);
-        if(myCompanyChicago.month.getText().equals(month)){
-            myCompanyChicago.month.click();
-        }else{
-            myCompanyChicago.nextMonth.click();
-            myCompanyChicago.month.click();
-        }
+    @Then("button Today in Calendar is clickable")
+    public void button_Today_in_Calendar_is_clickable(io.cucumber.datatable.DataTable dataTable) {
 
-        new Select(myCompanyChicago.getDate(date)).selectByValue(date);
-        myCompanyChicago.dayBtn.click();
+        //BrowserUtils.waitForClickablility(myCompanyChicago.todayBtnCalendar, 5);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        wait.until(ExpectedConditions.elementToBeClickable(myCompanyChicago.todayBtnCalendar));
 
-        for (WebElement t : myCompanyChicago.time){
-            if (t.getText().equals(time)) {
-                t.click();
-            }
-        }
-
-        myCompanyChicago.createSummary.click();
-    }
-
-    @When("manager goes to the planned activities page")
-    public void manager_goes_to_the_planned_activities_page() {
-
-    }
-
-    @Then("manager should see correct information:")
-    public void manager_should_see_correct_information(io.cucumber.datatable.DataTable dataTable) {
-
+        //myCompanyChicago.todayBtnCalendar.isDisplayed();
+        String expectedTitle = Driver.getDriver().getTitle();
+        String actualTitle = "Meetings (Week 10) - Odoo";
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
 }
