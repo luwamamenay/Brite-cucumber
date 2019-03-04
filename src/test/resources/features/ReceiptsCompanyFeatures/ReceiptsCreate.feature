@@ -1,4 +1,4 @@
-@regression @BRIT-4230
+@regression @BRIT-4230 @wip
 Feature: Verify that Create page functionality works
 
 

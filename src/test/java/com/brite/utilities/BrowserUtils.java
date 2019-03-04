@@ -18,6 +18,10 @@ import java.util.*;
 
 public class BrowserUtils {
 
+    public static void clickWithJS(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+    }
 
     public static boolean isClickable(WebElement element) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);

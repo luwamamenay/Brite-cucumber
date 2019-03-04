@@ -1,4 +1,4 @@
-
+@wip
 Feature: I should be able successfully to use main functionalities of module
          'Receipts - My Company Chicago' (Manager prospective)
 

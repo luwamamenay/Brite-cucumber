@@ -1,4 +1,4 @@
-package com.brite.step_definitions;
+package com.brite.step_definitions.ReceiptsMyCompanyChicago;
 
 import com.brite.pages.HomePage;
 import com.brite.pages.LoginPage;
