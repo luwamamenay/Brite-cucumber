@@ -2,6 +2,7 @@ package com.brite.step_definitions.ReceiptsMyCompanyChicago;
 
 import com.brite.pages.ReceiptsMyCompanyChicagoPage;
 import com.brite.utilities.BrowserUtils;
+import com.brite.utilities.Driver;
 import com.brite.utilities.ExcelUtils;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,7 +10,9 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.*;
 
@@ -29,16 +32,33 @@ public class DataDrivenTestDemoStepDefinitions {
     public void manager_can_add(String partner, String product, String price) {
 
         myCompanyChicago.partnerButton.click();
-        new Select(myCompanyChicago.partnerDropDown).selectByVisibleText("Search More...");
+        myCompanyChicago.partnerDropDown.click();
+        myCompanyChicago.searchMore.click();
 
         myCompanyChicago.searchPartner.sendKeys(partner, Keys.ENTER);
+        System.out.println(myCompanyChicago.searchPartnerResult.getText());
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        //wait.until(ExpectedConditions.urlToBe("http://54.148.96.210/web#id=&view_type=form&model=stock.picking&action=491&active_id=6"));
+        wait.until(ExpectedConditions.textToBePresentInElement(myCompanyChicago.searchPartnerResult, partner));
+        System.out.println(myCompanyChicago.searchPartnerResult.getText());
+        //myCompanyChicago.searchPartnerResult.click();
         if (myCompanyChicago.searchPartnerResult.getText().equalsIgnoreCase(partner)){
-            myCompanyChicago.searchPartnerResult.click();
-        }
+           myCompanyChicago.searchPartnerResult.click(); }
 
         BrowserUtils.waitForClickablility(myCompanyChicago.addItem, 5);
+//        BrowserUtils.clickWithJS(myCompanyChicago.addItem);
+
         myCompanyChicago.addItem.click();
-        new Select(myCompanyChicago.itemLink).selectByVisibleText(product);
+        wait.until(ExpectedConditions.elementToBeClickable(myCompanyChicago.itemLink));
+        myCompanyChicago.itemLink.click();
+
+        //wait.until(ExpectedConditions.visibilityOfAllElements(myCompanyChicago.listOfProducts));
+
+        List<WebElement> s = myCompanyChicago.listOfProducts();
+
+
+
+        System.out.println(s);
 
         myCompanyChicago.price.sendKeys(price, Keys.ENTER);
         myCompanyChicago.saveButtonReceipt.click();

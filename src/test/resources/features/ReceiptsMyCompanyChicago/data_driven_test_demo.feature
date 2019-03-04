@@ -24,7 +24,7 @@ Feature: I should be able to schedule successfully testDemos, meetings, calls, t
 
     Examples:
     |partner	                |product	                |price	 |activity	    |notes	        |month	|date   |time       |
-    |ACD, samuel jackson	    |[CARD] Graphics Card       |884.23	 |TestDemo		|testing item	|April	|27	    |12:30:00 PM|
+    |ACD                 	    |[CARD] Graphics Card       |884.23	 |TestDemo		|testing item	|April	|27	    |12:30:00 PM|
     |ASUSTeK, James Miller	    |[CONS_DEL01] Server        |567.71	 |TestDemo		|presentation   |April	|21	    |14:00:00 PM|
     |ASUSTeK, Matthew	        |[CONS_DEL02] Little server	|463.88	 |TestDemo		|review	        |April	|21	    |7:30:00 AM |
     |ASUSTeK, Peter Mitchell	|[CPUi5] Processor Core     |431.74	 |TestDemo		|pricing	    |April	|29	    |20:00:00 PM|

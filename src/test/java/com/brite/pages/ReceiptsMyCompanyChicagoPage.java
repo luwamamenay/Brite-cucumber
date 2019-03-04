@@ -38,6 +38,9 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
     public WebElement partnerDropDown;
 
+    @FindBy (xpath = "(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]/li[8] ")
+    public WebElement searchMore;
+
     @FindBy (xpath = "(//div[@class='o_searchview']//input)")
     public WebElement searchPartner;
 
@@ -47,13 +50,27 @@ public class ReceiptsMyCompanyChicagoPage {
 //    @FindBy (xpath = "//div[@class='modal-footer']//button[1]")
 //    public WebElement createPartner;
 
-    @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped o_editable_list']/tbody/tr[1]/td)[2]")
-    public WebElement addItem;
+    //@FindBy (xpath = "//*[@id=\"notebook_page_388\"]/div[1]/div[2]/table/tbody/tr[1]/td/a")
 
-    @FindBy (xpath = "//div[@class='o_field_widget o_field_many2one o_required_modifier']/div//input")
+   @FindBy(linkText = "Add an item")
+            public WebElement addItem;
+    ////*[contains(text(),'Add an item')]
+
+    @FindBy (xpath = "//div[@name='product_id']/div/input")
     public WebElement itemLink;
 
-    @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped o_editable_list']/tbody/tr[1]/td[3])//span")
+    @FindBy (xpath = "//ul[@id='ui-id-169']/li[@class='ui-menu-item']")
+    public List<WebElement> listOfProducts;
+
+
+    public List <WebElement> listOfProducts(){
+        List list = Driver.getDriver().findElements(By.xpath("//ul[@id='ui-id-169']/li[@class='ui-menu-item']"));
+
+        return list;
+    }
+
+
+    @FindBy (xpath = "//input[@class='o_field_float o_field_number o_field_widget o_input']")
     public WebElement price;
 
     @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
