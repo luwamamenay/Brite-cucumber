@@ -13,9 +13,12 @@ public class DBUtils {
     private static ResultSet resultSet;
 
     public static void createConnection() {
-        String url = ConfigurationReader.getProperty("dburl");
-        String user = ConfigurationReader.getProperty("dbuser");
-        String password = ConfigurationReader.getProperty("dbpassword");
+        //String url = ConfigurationReader.getProperty("dburl");
+        String url = "jdbc:postgresql://54.148.96.210:5432/BriteErpDemo";
+        //String user = ConfigurationReader.getProperty("dbuser");
+        String user = "podoo";
+        //String password = ConfigurationReader.getProperty("dbpassword");
+        String password = "podoo";
         //connect to the data base
         try {
             connection = DriverManager.getConnection(url, user, password);
@@ -222,10 +225,10 @@ public class DBUtils {
 
     }
 
-    public static  int rowsCount(String query) {
+    public static  int rowsCount(String sql) {
 
         String query1 = "SELECT * FROM stock_picking WHERE  state = (select state WHERE state ='done' and name LIKE 'My Co%');";
-        System.out.println(query);
+        System.out.println(query1);
         executeQuery(query1);
 
         int count = 0;

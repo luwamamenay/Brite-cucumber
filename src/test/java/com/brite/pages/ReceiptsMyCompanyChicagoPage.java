@@ -37,10 +37,13 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "(//div[@class='o_list_buttons']//button)[1]")
     public WebElement createButton;
 
+    @FindBy (xpath = "//button[@class='btn btn-primary btn-sm o_list_button_add']")
+    public  WebElement createBtn;
+
     @FindBy (xpath = "(//div[@class='o_input_dropdown'])[1]")
     public WebElement partnerDropDown;
 
-    @FindBy (xpath = "(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]/li[8] ")
+    @FindBy (xpath = "(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]/li[8]")
     public WebElement searchMore;
 
     @FindBy (xpath = "(//div[@class='o_searchview']//input)")
@@ -49,14 +52,9 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "(//table[@class='o_list_view table table-condensed table-striped o_list_view_ungrouped']/tbody/tr[1]/td[1])[2]")
     public WebElement searchPartnerResult;
 
-//    @FindBy (xpath = "//div[@class='modal-footer']//button[1]")
-//    public WebElement createPartner;
-
-    //@FindBy (xpath = "//*[@id=\"notebook_page_388\"]/div[1]/div[2]/table/tbody/tr[1]/td/a")
 
    @FindBy(linkText = "Add an item")
             public WebElement addItem;
-    ////*[contains(text(),'Add an item')]
 
     @FindBy (xpath = "//div[@name='product_id']/div/input")
     public WebElement itemLink;
@@ -65,10 +63,10 @@ public class ReceiptsMyCompanyChicagoPage {
     public List<WebElement> listOfProducts;
 
 
-    public List <WebElement> listOfProducts() throws InterruptedException {
+    public List <WebElement> listOfProducts() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
         //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//ul[@id='ui-id-169']/li[@class='ui-menu-item']")));
-        Thread.sleep(1000);
+
         List list = Driver.getDriver().findElements(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li[@class='ui-menu-item']"));
 
         return list;
@@ -92,8 +90,6 @@ public class ReceiptsMyCompanyChicagoPage {
 
         return list;
     }
-
-    //stoped here
 
     @FindBy (xpath = "//h1[@class='hidden-xs']/span")
     public WebElement transferNumber;
@@ -159,7 +155,6 @@ public class ReceiptsMyCompanyChicagoPage {
         }
 
         return Driver.getDriver().findElement(By.xpath("//table[@class='ui-datepicker-calendar']/tbody/tr[" + week + "]/td"));
-        ////table[@class='ui-datepicker-calendar']/tbody/tr[1]/td
     }
 
     @FindBy (xpath = "//div[@class='btn-group btn-group-sm']/button[1]")
@@ -239,5 +234,17 @@ public class ReceiptsMyCompanyChicagoPage {
 
     @FindBy (xpath = "//span[@class='o_pager_counter']/span[2]")
     public WebElement resultSearchDone;
+
+    @FindBy (xpath = "//td[@class='o_data_cell o_readonly_modifier'][6]")
+    public List<WebElement> statusSearchList;
+
+    @FindBy (xpath = "//th[@class='o-sort-down o_column_sortable']")
+    public WebElement productAddProduct;
+
+    @FindBy (xpath = "//*[@class='o_statusbar_status o_field_widget o_readonly_modifier']/button[1]")
+    public WebElement statusButtonDoneTop;
+
+    @FindBy (xpath = "//ul[@class='nav nav-tabs']/li[3]/a")
+    public WebElement additioanlInfo;
 
 }
