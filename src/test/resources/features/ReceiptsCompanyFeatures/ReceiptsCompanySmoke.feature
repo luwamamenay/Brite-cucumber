@@ -1,4 +1,4 @@
-@smoke @BRIT-3998 @regression @wip
+@smoke @BRIT-3998 @regression
 Feature: Verify title and  buttons on Receipts Page
 
   Background:Steps to open Receipts Module page.

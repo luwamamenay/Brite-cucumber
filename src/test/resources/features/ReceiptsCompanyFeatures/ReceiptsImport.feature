@@ -1,4 +1,4 @@
-@regression @BRIT-4231 @wip
+@regression @BRIT-4231
 Feature:As a User I should be able to upload a file
 
   Background:Steps to open Receipts Module page.

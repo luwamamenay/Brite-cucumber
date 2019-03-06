@@ -94,6 +94,16 @@ public class ReceiptsMyCompanyChicagoPage {
     }
 
     //stoped here
+
+    @FindBy (xpath = "//h1[@class='hidden-xs']/span")
+    public WebElement transferNumber;
+
+    @FindBy (xpath = "//input[@class='o_field_char o_field_widget o_input']")
+    public WebElement sourceDocument;
+
+    @FindBy (xpath = "//ul[@class='dropdown-menu o_filters_menu']/li[5]")
+    public WebElement doneFilter;
+
     @FindBy (xpath = "//div[@class='o_cp_buttons']/div/button[2]")
     public WebElement todayBtnCalendar;
 
@@ -212,7 +222,7 @@ public class ReceiptsMyCompanyChicagoPage {
     @FindBy (xpath = "//*[@title='Advanced Search...']")
     public WebElement advancedSearchBtn;
 
-    @FindBy (xpath = "//*[@class='btn-group o_search_options'][1]/div[1]//button")
+    @FindBy (xpath = "//*[@class='btn-group o_search_options'][1]/div[1]/button")
     public WebElement filterBtn;
 
     @FindBy(xpath = "//*[@class='btn-group o_search_options']/div[2]//button")
@@ -226,5 +236,8 @@ public class ReceiptsMyCompanyChicagoPage {
 
     @FindBy (xpath = "//*[@class='o_calendar_buttons']//button[2]")
     public WebElement todayBtn;
+
+    @FindBy (xpath = "//span[@class='o_pager_counter']/span[2]")
+    public WebElement resultSearchDone;
 
 }

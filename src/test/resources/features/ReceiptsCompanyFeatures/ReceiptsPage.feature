@@ -1,4 +1,4 @@
-@BRIT-4153 @regression @wip
+@BRIT-4153 @regression
 Feature:User should able to select and sort the options
 
 	Background:Steps to open Receipts Module page.

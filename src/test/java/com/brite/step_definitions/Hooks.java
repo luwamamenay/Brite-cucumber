@@ -2,6 +2,7 @@ package com.brite.step_definitions;
 
 
 import com.brite.utilities.ConfigurationReader;
+import com.brite.utilities.DBUtils;
 import com.brite.utilities.Driver;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -20,6 +21,8 @@ public class Hooks {
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         Driver.getDriver().manage().window().maximize();
+
+        DBUtils.createConnection();
     }
 
     @After
@@ -33,7 +36,9 @@ public class Hooks {
             // scenario.embed(screenshot, "image/png");
         }
 
+        DBUtils.destroy();
         // Driver.closeDriver();
+
     }
 
 

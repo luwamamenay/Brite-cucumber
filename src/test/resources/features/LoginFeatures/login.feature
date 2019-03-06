@@ -1,4 +1,4 @@
- @login @smoke @wip
+ @login @smoke
 Feature: login functionality
 
   Background: user / manager should go to home page
